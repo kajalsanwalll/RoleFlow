@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RoleFlow 🚀
 
-## Getting Started
+RoleFlow is a full-stack web application focused on **role-based authentication and access control**, designed to explore secure backend architecture using modern web technologies.
 
-First, run the development server:
+The project is currently in its foundational stage, with Prisma ORM integrated and PostgreSQL planned as the primary database.
 
+---
+
+## 🧠 Purpose
+
+This project is built to:
+- Understand **role-based access systems** (Admin, User, etc.)
+- Practice **backend architecture with Prisma**
+- Set up a scalable authentication + authorization flow
+- Serve as a base for future SaaS-style features
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js
+- **Backend**: Node.js
+- **ORM**: Prisma
+- **Database**: PostgreSQL (Neon)
+- **Package Manager**: npm
+- **Version Control**: Git & GitHub
+
+---
+
+## 📁 Project Structure
+
+roleflow/
+
+├── prisma/
+│ └── schema.prisma
+
+├── package.json
+
+├── package-lock.json
+
+├── .gitignore
+
+└── README.md
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/kajalsanwalll/RoleFlow.git
+cd RoleFlow
+2️⃣ Install dependencies
+npm install
+3️⃣ Environment variables
+Create a .env file based on the example:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+⚠️ Never commit your .env file.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4️⃣ Prisma setup
+npx prisma generate
+If using an existing database:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npx prisma db pull
 
-## Learn More
+🧩 Current Status
 
-To learn more about Next.js, take a look at the following resources:
+✅ Project initialized
+✅ Prisma configured
+✅ PostgreSQL datasource set
+⏳ Schema design in progress
+⏳ Role-based logic upcoming
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔮 Future Enhancements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+User authentication
+Role-based route protection
+Admin dashboard
+API access control
+Deployment-ready configuration
 
-## Deploy on Vercel
+👩‍💻 Author
+Kajal Sanwal
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✨ This project is under active development. Updates coming soon.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
