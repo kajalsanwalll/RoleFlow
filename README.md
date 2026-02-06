@@ -64,25 +64,34 @@ npx prisma generate
 If using an existing database:
 
 npx prisma db pull
+```
 
 🧩 Current Status
-
+--
 ✅ Project initialized
+
 ✅ Prisma configured
+
 ✅ PostgreSQL datasource set
+
 ⏳ Schema design in progress
+
 ⏳ Role-based logic upcoming
 
 🔮 Future Enhancements
-
+--
 User authentication
+
 Role-based route protection
+
 Admin dashboard
+
 API access control
+
 Deployment-ready configuration
 
 👩‍💻 Author
+--
 Kajal Sanwal
 
 ✨ This project is under active development. Updates coming soon.
-
