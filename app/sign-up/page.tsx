@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react'
 import { useSignUp } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
