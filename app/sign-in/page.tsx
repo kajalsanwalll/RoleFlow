@@ -96,7 +96,7 @@ function SignIn() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute p-4 right-2 top-1/2 -translate-y-1/2"
+                  className="absolute right-2 top-1/2 -translate-y-1/2"
                 >
                   {showPassword ? (
                     <EyeOff className="h-4 w-4 text-gray-500" />
