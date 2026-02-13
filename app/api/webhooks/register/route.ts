@@ -53,9 +53,26 @@ export async function POST(req: Request){
             (email) => email.id === primary_email_address_id
         )
 
+        if(!primaryEmail){
+            return new Response("No Primary email found!", {status:400})
+        }
+
+        //create a user in neon(postgresql)
+        const newUser = await prisma.user.create({
+            data:{
+                id: evt.data.id!,
+                email: primaryEmail.email_address,
+                isSubscribed: false
+            }
+        })
+        console.log("New user created", newUser);
+
         } catch (error) {
-            
+           return new Response("error creating user in database!", {status:400})
+
         }
     }
+
+    return new Response("Webhook received successfully!", {status:200})
 
 }
