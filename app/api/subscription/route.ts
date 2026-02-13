@@ -45,3 +45,54 @@ export async function POST() {
         }, {status:500})
     }
 }
+
+export async function GET(){
+    const { userId} = await auth();
+
+    if(!userId){
+        return NextResponse.json({error:"Unauthorized!"}, {status:400})
+    }
+
+    try {
+        const user = await prisma.user.findUnique(
+        {
+            where: {id: userId},
+            select: {
+                isSubscribed: true, subscriptionEnds: true}
+        })
+
+        if(!user){
+        return NextResponse.json({error:"No user found!"}, {status:400})
+        }
+
+        const now = new Date();
+
+        if(user.subscriptionEnds && user.subscriptionEnds < now){
+            await prisma.user.update({
+                where:{id:userId},
+                data: {
+                    isSubscribed: false,
+                    subscriptionEnds: null
+                }
+            })
+
+            return NextResponse.json({
+                isSubscribed: false,
+                subscriptionEnds: null
+            })
+        }
+
+        return NextResponse.json(
+            {
+                isSubscribed: user.isSubscribed,
+                subscriptionEnds: user.subscriptionEnds
+            }
+        )
+    } catch (err) {
+        console.error("error updating your subscription bruh!",err)
+
+        return NextResponse.json({
+            error: "Internal Server Error!"
+        }, {status:500})
+    }
+}
